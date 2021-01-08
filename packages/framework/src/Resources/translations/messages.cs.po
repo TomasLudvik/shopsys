@@ -34,6 +34,9 @@ msgstr "-- Vyberte značku --"
 msgid "-- Choose unit --"
 msgstr "-- Vyberte jednotku --"
 
+msgid "... expand ..."
+msgstr ""
+
 msgid "<a href=\"{{ url }}\">Default product in stock availability is not set.</a>"
 msgstr "<a href=\"{{ url }}\">Není nastavena výchozí dostupnost pro produkty skladem.</a>"
 
@@ -2511,6 +2514,9 @@ msgstr "značek"
 
 msgid "category"
 msgstr "kategorie"
+
+msgid "collapse"
+msgstr ""
 
 msgid "countries"
 msgstr "státy"

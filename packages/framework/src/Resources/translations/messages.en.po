@@ -34,6 +34,9 @@ msgstr ""
 msgid "-- Choose unit --"
 msgstr ""
 
+msgid "... expand ..."
+msgstr ""
+
 msgid "<a href=\"{{ url }}\">Default product in stock availability is not set.</a>"
 msgstr ""
 
@@ -2510,6 +2513,9 @@ msgid "brands"
 msgstr ""
 
 msgid "category"
+msgstr ""
+
+msgid "collapse"
 msgstr ""
 
 msgid "countries"

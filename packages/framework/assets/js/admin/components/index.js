@@ -5,6 +5,7 @@ import './CategoryDeleteConfirm';
 import './CategoryTreeForm';
 import './CategoryTreeSorting';
 import './CharactersCounter';
+import './CkEditorPreview';
 import './choiceControl';
 import './ColorPicker';
 import './ConfirmDelete';
