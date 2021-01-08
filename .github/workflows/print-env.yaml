@@ -1,0 +1,13 @@
+on: [push]
+name: Print secret ENV
+jobs:
+    print:
+        environment: build
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@master
+            -   run: echo "begin"
+            -   run: echo $SECRET_VALUE
+            -   run: echo $SECRET_VALUE >> greetings.txt
+            -   run: cat greetings.txt
+            -   run: echo "end"

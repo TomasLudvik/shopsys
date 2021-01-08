@@ -1,0 +1,68 @@
+on: [push]
+name: Build app, standards, tests
+jobs:
+    install:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@master
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '7.4'
+                    extensions: bcmath, gd, intl, pdo_pgsql, redis, pgsql, zip
+                    tools: composer
+            -   uses: actions/setup-node@v2
+                with:
+                    node-version: '12'
+            -   run: composer install
+            -   run: php phing assets npm
+            -   run: ls -la
+            -   run: mkdir -p /tmp/shopsys/
+            -   run: ls -la /tmp/shopsys
+            -   run: tar cvfz /tmp/shopsys/installed-dir.tar.gz ./
+            #-   run: cp  /tmp/shopsys/installed-dir
+            -   uses: actions/upload-artifact@master
+                with:
+                    name: installed-dir
+                    path: /tmp/shopsys
+    standards:
+        runs-on: ubuntu-latest
+        needs: install
+        steps:
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '7.4'
+                    extensions: bcmath, gd, intl, pdo_pgsql, redis, pgsql, zip
+                    tools: composer
+            -   uses: actions/setup-node@v2
+                with:
+                    node-version: '12'
+            -   uses: actions/download-artifact@master
+                with:
+                    name: installed-dir
+                    path: /tmp/shopsys
+            -   run: ls -la /tmp/shopsys/
+            -   run: cp /tmp/shopsys/installed-dir.tar.gz ./
+            -   run: tar xvfz installed-dir.tar.gz
+            -   run: php -v
+            -   run: php phing standards
+    tests-unit:
+        runs-on: ubuntu-latest
+        needs: install
+        steps:
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '7.4'
+                    extensions: bcmath, gd, intl, pdo_pgsql, redis, pgsql, zip
+                    tools: composer
+            -   uses: actions/setup-node@v2
+                with:
+                    node-version: '12'
+            -   uses: actions/download-artifact@master
+                with:
+                    name: installed-dir
+                    path: /tmp/shopsys
+            -   run: ls -la /tmp/shopsys/
+            -   run: cp /tmp/shopsys/installed-dir.tar.gz ./
+            -   run: tar xvfz installed-dir.tar.gz
+            -   run: php -v
+            -   run: php phing tests-unit

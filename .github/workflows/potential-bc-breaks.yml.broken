@@ -1,0 +1,10 @@
+on: [push]
+name: Check potential BC breaks
+jobs:
+    roave_bc_check:
+        name: Roave BC Check
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@master
+            -   run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+            -   run: docker run --rm -v `pwd`:/app nyholm/roave-bc-check -- --from=master

@@ -1,0 +1,8 @@
+on: [push]
+name: Build dockerized app
+jobs:
+      install:
+            runs-on: ubuntu-latest
+            steps:
+                  -   uses: actions/checkout@master
+                  -   run: echo 1 | ./project-base/scripts/install.sh
