@@ -1,13 +1,9 @@
 on: [push]
-name: Print secret ENV
+name: Print secret ENV SECRET_VALUE
 jobs:
     print:
         environment: build
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@master
-            -   run: echo "begin"
-            -   run: echo $SECRET_VALUE
-            -   run: echo $SECRET_VALUE >> greetings.txt
-            -   run: cat greetings.txt
-            -   run: echo "end"
+            -   run: echo ${{ secrets.SECRET_VALUE }}
+            -   run: echo -n ${{ secrets.SECRET_VALUE }} | wc -m
