@@ -9,7 +9,7 @@ use FOS\CKEditorBundle\Twig\CKEditorExtension as BaseCKEditorExtension;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class CkEditorExtension extends AbstractExtension
+class CKEditorExtension extends AbstractExtension
 {
     /**
      * @var \FOS\CKEditorBundle\Config\CKEditorConfigurationInterface
