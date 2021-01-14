@@ -11,14 +11,14 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
     /**
      * @var \FOS\CKEditorBundle\Renderer\CKEditorRendererInterface
      */
-    protected CKEditorRendererInterface $baseCKEditorRenderer;
+    protected CKEditorRendererInterface $baseCkEditorRenderer;
 
     /**
-     * @param \FOS\CKEditorBundle\Renderer\CKEditorRendererInterface $baseCKEditorRenderer
+     * @param \FOS\CKEditorBundle\Renderer\CKEditorRendererInterface $baseCkEditorRenderer
      */
-    public function __construct(CKEditorRendererInterface $baseCKEditorRenderer)
+    public function __construct(CKEditorRendererInterface $baseCkEditorRenderer)
     {
-        $this->baseCKEditorRenderer = $baseCKEditorRenderer;
+        $this->baseCkEditorRenderer = $baseCkEditorRenderer;
     }
 
     /**
@@ -27,7 +27,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderBasePath(string $basePath): string
     {
-        return $this->baseCKEditorRenderer->renderBasePath($basePath);
+        return $this->baseCkEditorRenderer->renderBasePath($basePath);
     }
 
     /**
@@ -36,7 +36,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderJsPath(string $jsPath): string
     {
-        return $this->baseCKEditorRenderer->renderJsPath($jsPath);
+        return $this->baseCkEditorRenderer->renderJsPath($jsPath);
     }
 
     /**
@@ -53,8 +53,8 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
                 %s
             });',
             $id,
-            $this->baseCKEditorRenderer->renderWidget($id, $config, $options),
-            $this->renderJSValidation($id)
+            $this->baseCkEditorRenderer->renderWidget($id, $config, $options),
+            $this->renderJsValidation($id)
         );
     }
 
@@ -62,7 +62,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      * @param string $id
      * @return string
      */
-    protected function renderJSValidation(string $id): string
+    protected function renderJsValidation(string $id): string
     {
         return sprintf(
             'CKEDITOR.instances["%1$s"].on("change", function () {
@@ -78,7 +78,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderDestroy(string $id): string
     {
-        return $this->baseCKEditorRenderer->renderDestroy($id);
+        return $this->baseCkEditorRenderer->renderDestroy($id);
     }
 
     /**
@@ -88,7 +88,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderPlugin(string $name, array $plugin): string
     {
-        return $this->baseCKEditorRenderer->renderPlugin($name, $plugin);
+        return $this->baseCkEditorRenderer->renderPlugin($name, $plugin);
     }
 
     /**
@@ -98,7 +98,7 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderStylesSet(string $name, array $stylesSet): string
     {
-        return $this->baseCKEditorRenderer->renderStylesSet($name, $stylesSet);
+        return $this->baseCkEditorRenderer->renderStylesSet($name, $stylesSet);
     }
 
     /**
@@ -108,6 +108,6 @@ class CKEditorRendererDecorator implements CKEditorRendererInterface
      */
     public function renderTemplate(string $name, array $template): string
     {
-        return $this->baseCKEditorRenderer->renderTemplate($name, $template);
+        return $this->baseCkEditorRenderer->renderTemplate($name, $template);
     }
 }
