@@ -18,6 +18,7 @@ use Shopsys\FrameworkBundle\Model\Product\TopProduct\TopProductFacade;
 use Shopsys\ReadModelBundle\Image\ImageViewFacadeInterface;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFacade;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFactory;
+use Shopsys\ReadModelBundle\Product\Listed\Exception\NoProductPriceForPricingGroupException;
 
 class ListedProductViewElasticFacade implements ListedProductViewFacadeInterface
 {
@@ -269,12 +270,16 @@ class ListedProductViewElasticFacade implements ListedProductViewFacadeInterface
         $listedProductViews = [];
         foreach ($productsArray as $productArray) {
             $productId = $productArray['id'];
-            $listedProductViews[$productId] = $this->listedProductViewFactory->createFromArray(
-                $productArray,
-                $imageViews[$productId],
-                $this->productActionViewFactory->createFromArray($productArray),
-                $this->currentCustomerUser->getPricingGroup()
-            );
+            try {
+                $listedProductViews[$productId] = $this->listedProductViewFactory->createFromArray(
+                    $productArray,
+                    $imageViews[$productId],
+                    $this->productActionViewFactory->createFromArray($productArray),
+                    $this->currentCustomerUser->getPricingGroup()
+                );
+            } catch (NoProductPriceForPricingGroupException $exception) {
+                continue;
+            }
         }
 
         return $listedProductViews;
