@@ -13,3 +13,6 @@ There you can find links to upgrade notes for other versions too.
 
 - update annotations for EntityExtensionTest.php ([#2197](https://github.com/shopsys/shopsys/pull/2197))
     - see #project-base-diff to update your project
+
+- add test to check if entities are refreshed after order is completed and after recalculation ([#2202](https://github.com/shopsys/shopsys/pull/2202))
+    - see #project-base-diff to update your project
