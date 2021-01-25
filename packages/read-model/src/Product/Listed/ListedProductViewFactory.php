@@ -7,6 +7,7 @@ namespace Shopsys\ReadModelBundle\Product\Listed;
 use BadMethodCallException;
 use Shopsys\FrameworkBundle\Component\Domain\Domain;
 use Shopsys\FrameworkBundle\Model\Customer\User\CurrentCustomerUser;
+use Shopsys\FrameworkBundle\Model\Pricing\Exception\NoProductPriceForPricingGroupException;
 use Shopsys\FrameworkBundle\Model\Pricing\Group\PricingGroup;
 use Shopsys\FrameworkBundle\Model\Product\Pricing\PriceFactory;
 use Shopsys\FrameworkBundle\Model\Product\Pricing\ProductPrice;
@@ -17,7 +18,6 @@ use Shopsys\ReadModelBundle\Image\ImageViewFacadeInterface;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionView;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFacadeInterface;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFactory;
-use Shopsys\ReadModelBundle\Product\Listed\Exception\NoProductPriceForPricingGroupException;
 
 class ListedProductViewFactory
 {

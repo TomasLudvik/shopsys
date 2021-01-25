@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Shopsys\ReadModelBundle\Product\Listed\Exception;
+namespace Shopsys\FrameworkBundle\Model\Pricing\Exception;
 
 use Exception;
-use Shopsys\FrameworkBundle\Model\Pricing\Exception\PricingException;
 
 class NoProductPriceForPricingGroupException extends Exception implements PricingException
 {

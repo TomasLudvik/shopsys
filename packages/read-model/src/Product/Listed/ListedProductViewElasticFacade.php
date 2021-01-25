@@ -8,6 +8,7 @@ use BadMethodCallException;
 use Shopsys\FrameworkBundle\Component\Domain\Domain;
 use Shopsys\FrameworkBundle\Component\Paginator\PaginationResult;
 use Shopsys\FrameworkBundle\Model\Customer\User\CurrentCustomerUser;
+use Shopsys\FrameworkBundle\Model\Pricing\Exception\NoProductPriceForPricingGroupException;
 use Shopsys\FrameworkBundle\Model\Product\Accessory\ProductAccessoryFacade;
 use Shopsys\FrameworkBundle\Model\Product\Filter\ProductFilterData;
 use Shopsys\FrameworkBundle\Model\Product\Product;
@@ -18,7 +19,6 @@ use Shopsys\FrameworkBundle\Model\Product\TopProduct\TopProductFacade;
 use Shopsys\ReadModelBundle\Image\ImageViewFacadeInterface;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFacade;
 use Shopsys\ReadModelBundle\Product\Action\ProductActionViewFactory;
-use Shopsys\ReadModelBundle\Product\Listed\Exception\NoProductPriceForPricingGroupException;
 
 class ListedProductViewElasticFacade implements ListedProductViewFacadeInterface
 {
